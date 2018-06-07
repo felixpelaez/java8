@@ -11,6 +11,10 @@ public class Product {
 		this.price = price;
 		this.name = name;
 	}
+	public Product() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public int getId() {
 		return id;
 	}

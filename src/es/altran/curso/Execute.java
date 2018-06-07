@@ -11,11 +11,13 @@ public class Execute {
 		Book b1= new Book (1, 10.0, "java1","altran", "Certificacion en Java I");
 		Book b2= new Book (2, 20.0, "java2","altran", "Certificacion en Java II");
 		Mobile m1 = new Mobile(3,1000.0,"mobile1",5.5,"samsung X");
+		Mobile m2 = new Mobile(4,24.0,"mobile2",6.0,"samsung 6.0 inches");
 		
 		ArrayList<Product> list = new ArrayList<Product>();
 		list.add(m1);
 		list.add(b2);
 		list.add(b1);
+		list.add(m2);
 
 		
 		for (Product prod : list) {
@@ -36,6 +38,30 @@ public class Execute {
 		for (Product prod : list) {
 			System.out.println(prod);			
 		}
+		
+		System.out.println("Producto con id 3:" + logic.getProductByID(list, 3));
+		
+		ArrayList<Product> lista20=logic.getProductByPrice(list, 20.0, 30.0);
+		System.out.println("Lista de 20 euros.");
+		for (Product prod : lista20) {
+			System.out.println(prod);			
+		}
+		
+
+		list.sort((Product o1,Product o2) -> (int) ((o1.getPrice() -  o2.getPrice())));
+		
+		list.sort((Product o1,Product o2) -> {
+		int result=0;
+		if (o1.getPrice() < o2.getPrice()) {
+			result=-1;
+		}else if (o1.getPrice() > o2.getPrice()) {
+			result=1;
+		};return result;});
+
+		
+		System.out.println("\nLista Ordenada por precio.");
+		list.forEach((p)->System.out.println(p));
+		
 	}
 
 }
