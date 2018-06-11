@@ -39,16 +39,21 @@ public class Execute {
 			System.out.println(prod);			
 		}
 		
-		System.out.println("Producto con id 3:" + logic.getProductByID(list, 3));
+		System.out.println("Producto con id 3.old:" + logic.getProductByID(list, 3));
+		System.out.println("Producto con id 3.new:" + logic.getProductByID_Lambda(list, 3).get(0));
 		
 		ArrayList<Product> lista20=logic.getProductByPrice(list, 20.0, 30.0);
-		System.out.println("Lista de 20 euros.");
+		System.out.println("Lista de 20 euros.old");
 		for (Product prod : lista20) {
 			System.out.println(prod);			
 		}
 		
+		lista20=logic.getProductByPrice_Lambda(list, 20.0, 30.0);
+		System.out.println("Lista de 20 euros.new");
+		lista20.forEach(System.out::println);
+		
 
-		list.sort((Product o1,Product o2) -> (int) ((o1.getPrice() -  o2.getPrice())));
+		//list.sort((Product o1,Product o2) -> (int) ((o1.getPrice() -  o2.getPrice())));
 		
 		list.sort((Product o1,Product o2) -> {
 		int result=0;
