@@ -67,6 +67,8 @@ public class Execute {
 		System.out.println("\nLista Ordenada por precio.");
 		list.forEach((p)->System.out.println(p));
 		
+		Double oo= new Double("3.0");
+		
 	}
 
 }

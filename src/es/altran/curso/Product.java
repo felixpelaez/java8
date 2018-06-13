@@ -1,6 +1,9 @@
 package es.altran.curso;
 
-public class Product {
+import java.io.Serializable;
+
+public class Product implements Serializable{
+	private static final long serialVersionUID = -6572446215284230076L;
 	int id;
 	double price;
 	String name;
